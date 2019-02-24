@@ -1,0 +1,339 @@
+{% extends 'mainApp/basic.html' %}
+{% load staticfiles %}
+{% block title %}
+    <title>INTERIOR | HOME PAGE</title>
+{% endblock %}
+{% block content %}
+        <section class="header-section">
+            <div class="container">
+                <div id="slider1" class="slider">
+                    {% include 'mainApp/includes/inc_menu.html' %}
+                    <div class="slider-item item-1">
+                        <div class="row">
+                            <div class="cta-content">
+                                <h4 class="cta-tag green">TRENDING</h4>
+                                <h2 class="cta-name">Fishnet Chair</h2>
+                                <p class="cta-desc">Seat and back with upholstery made of cold cure foam.
+                                    Steel frame, available in matt powder-coated black</p>
+                                <a class="primary-btn" href="#">Order us <i class="fa fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-ui">
+                        <a href="#" class="ui-element"></a>
+                        <a href="#" class="ui-element active"></a>
+                        <a href="#" class="ui-element"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <main>
+            <section class="products-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="products-nav flex flex-between item-center">
+                            <div class="filter-tabs flex">
+                                <a href="#" class="tab active">Featured</a>
+                                <a href="#" class="tab">New</a>
+                            </div>
+                            <a href="products.html" class="more-link">
+                                Explore all
+                                <i class="fa fa-chevron-right"></i>
+                            </a>
+                        </div>
+                        <div class="products-grid flex flex-between">
+                            <div class="product">
+                                <img class="img-responsive" src="{% static 'img/product-1.jpg' %}" alt="">
+                                <div class="hover-overlay flex">
+                                    <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <h2 class="product-name">
+                                       Fishnet chair
+                                    </h2>
+                                    <p class="product-desc">Seat and back with upholstery made of cold cure foam.</p>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <img class="img-responsive" src="{% static 'img/product-2.jpg'%}" alt="">
+                                <div class="hover-overlay flex">
+                                    <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <h2 class="product-name">
+                                        Fishnet chair
+                                    </h2>
+                                    <p class="product-desc">Seat and back with upholstery made of cold cure foam.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <img class="img-responsive" src="{% static 'img/product-3.jpg' %}" alt="">
+                                <div class="hover-overlay flex">
+                                    <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <h2 class="product-name">
+                                        Fishnet chair
+                                    </h2>
+                                    <p class="product-desc">Seat and back with upholstery made of cold cure foam.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <img class="img-responsive" src="{% static 'img/product-4.jpg' %}" alt="">
+                                <div class="hover-overlay flex">
+                                    <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <h2 class="product-name">
+                                        Fishnet chair
+                                    </h2>
+                                    <p class="product-desc">Seat and back with upholstery made of cold cure foam.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="cta-section">
+                <div class="container flex">
+                    <div class="cta-wrap cta-block cta-one flex item-center">
+                        <div class="row">
+                            <h4 class="cta-tag blue">exclusive</h4>
+                            <h2 class="cta-name">Fishnet Chair</h2>
+                            <p class="cta-desc">Seat and back with upholstery made of cold cure foam.
+                                Steel frame, available in matt powder-coated black</p>
+                            <a class="primary-btn" href="#">
+                                Order us
+                                <i class="fa fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cta-wrap cta-block cta-two flex item-center">
+                        <div class="row">
+                            <h4 class="cta-tag blue">exclusive</h4>
+                            <h2 class="cta-name">Fishnet Chair</h2>
+                            <p class="cta-desc">Seat and back with upholstery made of cold cure foam.
+                                Steel frame, available in matt powder-coated black</p>
+                            <a class="primary-btn" href="#">
+                                Order us
+                                <i class="fa fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="tr-products-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="products-nav flex flex-between item-center">
+                            <h3 class="sect-heading">Trending products</h3>
+                            <a href="products.html" class="more-link">
+                                Explore all
+                                <i class="fa fa-chevron-right"></i>
+                            </a>
+                        </div>
+                        <div class="products-grid flex flex-between">
+                            <div class="product">
+                                <img class="img-responsive" src="{% static 'img/product-11.jpg' %}" alt="">
+                                <div class="hover-overlay flex">
+                                    <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <h2 class="product-name">
+                                        Fishnet chair
+                                    </h2>
+                                    <p class="product-desc">Seat and back with upholstery made of cold cure foam.</p>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <img class="img-responsive" src="{% static 'img/product-21.jpg' %}" alt="">
+                                <div class="hover-overlay flex">
+                                    <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <h2 class="product-name">
+                                        Fishnet chair
+                                    </h2>
+                                    <p class="product-desc">Seat and back with upholstery made of cold cure foam.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <img class="img-responsive" src="{% static 'img/product-31.jpg' %}" alt="">
+                                <div class="hover-overlay flex">
+                                    <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <h2 class="product-name">
+                                        Fishnet chair
+                                    </h2>
+                                    <p class="product-desc">Seat and back with upholstery made of cold cure foam.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <img class="img-responsive" src="{% static 'img/product-41.jpg' %}" alt="">
+                                <div class="hover-overlay flex">
+                                    <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <h2 class="product-name">
+                                        Fishnet chair
+                                    </h2>
+                                    <p class="product-desc">Seat and back with upholstery made of cold cure foam.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <img class="img-responsive" src="{% static 'img/product-5.jpg' %}" alt="">
+                                <div class="hover-overlay flex">
+                                    <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <h2 class="product-name">
+                                        Fishnet chair
+                                    </h2>
+                                    <p class="product-desc">Seat and back with upholstery made of cold cure foam.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <img class="img-responsive" src="{% static 'img/product-6.jpg' %}" alt="">
+                                <div class="hover-overlay flex">
+                                    <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <h2 class="product-name">
+                                        Fishnet chair
+                                    </h2>
+                                    <p class="product-desc">Seat and back with upholstery made of cold cure foam.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="slider-section">
+                <div class="container">
+                    <div id="slider2" class="slider">
+                        <div class="slider-item item-1">
+                            <div class="row">
+                                <div class="cta-content">
+                                    <h4 class="cta-tag red">hot deal</h4>
+                                    <h2 class="cta-name">Fishnet Chair</h2>
+                                    <p class="cta-desc">Seat and back with upholstery made of cold cure foam.
+                                        Steel frame, available in matt powder-coated black</p>
+                                    <a class="primary-btn" href="#">Order us <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-ui">
+                            <a href="#" class="ui-element"></a>
+                            <a href="#" class="ui-element active"></a>
+                            <a href="#" class="ui-element"></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="grid-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="grid flex flex-between">
+                            <div class="grid-container cta cta-three flex item-center">
+                                <img class="img-responsive" src="{% static 'img/product-1-lg.jpg' %}" alt="product">
+                                <div class="cta-wrap">
+                                    <h4 class="cta-tag blue">exclusive</h4>
+                                    <h2 class="cta-name">Fishnet Chair</h2>
+                                    <p class="cta-desc">Seat and back with upholstery made of cold cure foam.
+                                        Steel frame, available in matt</p>
+                                    <a class="primary-btn" href="#">
+                                        Order us
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="grid-container flex flex-between">
+                                <div class="product">
+                                    <img class="img-responsive" src="{% static 'img/product-2-sm.jpg' %}" alt="">
+                                    <div class="hover-overlay flex">
+                                        <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
+                                        <h2 class="product-name">
+                                            Fishnet chair
+                                        </h2>
+                                        <p class="product-desc">Seat and back with upholstery made of cold cure foam.</p>
+                                    </div>
+                                </div>
+                                <div class="product">
+                                    <img class="img-responsive" src="{% static 'img/product-3-sm.jpg' %}" alt="">
+                                    <div class="hover-overlay flex">
+                                        <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
+                                        <h2 class="product-name">
+                                            Fishnet chair
+                                        </h2>
+                                        <p class="product-desc">Seat and back with upholstery made of cold cure foam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="product">
+                                    <img class="img-responsive" src="{% static 'img/product-4-sm.jpg' %}" alt="">
+                                    <div class="hover-overlay flex">
+                                        <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
+                                        <h2 class="product-name">
+                                            Fishnet chair
+                                        </h2>
+                                        <p class="product-desc">Seat and back with upholstery made of cold cure foam.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="product">
+                                    <img class="img-responsive" src="{% static 'img/product-5-sm.jpg' %}" alt="">
+                                    <div class="hover-overlay flex">
+                                        <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
+                                        <h2 class="product-name">
+                                            Fishnet chair
+                                        </h2>
+                                        <p class="product-desc">Seat and back with upholstery made of cold cure foam.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="adv-section">
+                <div class="container">
+                    <div class="adv-cta flex item-center">
+                        <div class="row">
+                            <div class="cta-content">
+                                <h4 class="cta-tag">mobile app</h4>
+                                <h2 class="cta-name">Find. Follow. Favorite.
+                                </h2>
+                                <p class="cta-desc">Save your favorites and share your style.</p>
+                                <div class="btn-block">
+                                    <a href="#">
+                                        <img src="{% static 'img/app-store.jpg' %}" alt="app store">
+                                    </a>
+                                    <a href="#">
+                                        <img src="{% static 'img/google-play.jpg' %}" alt="google play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+{% endblock %}
