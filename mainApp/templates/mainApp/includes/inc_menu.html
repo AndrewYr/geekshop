@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<div class="row">
+    <header class="flex flex-between">
+        <a href="{% url 'mainApp' %}" class="logo">
+            <img src="{% static 'img/logo.png' %}" alt="Interior logo">
+        </a>
+        <nav class="menu">
+            <ul class="flex space-between">
+                <li><a class="{% if request.resolver_match.url_name == 'mainApp' %}
+                        active
+                      {% endif %}" href="{% url 'mainApp' %}">HOME</a></li>
+                <li><a class="{% if request.resolver_match.url_name == 'products' %}
+                        active
+                      {% endif %}" href={% url 'products' %}>PRODUCTS</a></li>
+                <li><a href="#">HISTORY</a></li>
+                <li><a href="#">SHOWROOM</a></li>
+                <li><a class="{% if request.resolver_match.url_name == 'contact' %}
+                        active
+                      {% endif %}" href="{% url 'contact' %}">CONTACT</a></li>
+                <li><a href="#"><i class="fas fa-search"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+
+
+{#<ul class="links-menu">#}
+{#    {% for link in links_menu %}#}
+{#        <li>#}
+{#            <a href="{% url link.href %}" #}
+{#               class="{% if request.resolver_match.url_name == link.href %}#}
+{#                        active#}
+{#                      {% endif %}">#}
+{#                {{ link.name }}#}
+{#            </a>#}
+{#        </li>#}
+{#    {% endfor %}#}
+{#</ul>#}
