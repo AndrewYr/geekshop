@@ -14,4 +14,4 @@ def fishnet_chair(request):
 
 def contacts(request):
     return render(request, 'mainApp/contact.html', locals())
-# Create your views here.
+
