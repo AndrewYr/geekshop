@@ -41,160 +41,20 @@
                         </div>
                     </div>
                     <div class="products-grid flex flex-between">
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-11.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="{% url 'fishnet_chair' %}" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.</p>
+                        {% for product in products %}
+                            <div class="product">
+                                <img class="img-responsive" src={{ product.image.url }} alt="" >
+                                <div class="hover-overlay flex">
+                                    <a href="{% url 'fishnet_chair' %}" class="primary-btn">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                    <h2 class="product-name">
+                                        {{ product.name }}
+                                    </h2>
+                                    <p class="product-desc">{{ product.short_desc }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-21.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="{% url 'fishnet_chair' %}" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-31.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="{% url 'fishnet_chair' %}" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-41.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="{% url 'fishnet_chair' %}" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-5.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="{% url 'fishnet_chair' %}" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-6.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="{% url 'fishnet_chair' %}" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-11.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="{% url 'fishnet_chair' %}" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.</p>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-21.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="{% url 'fishnet_chair' %}" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-31.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="{% url 'fishnet_chair' %}" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-41.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="{% url 'fishnet_chair' %}" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-5.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="{% url 'fishnet_chair' %}" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-6.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="{% url 'fishnet_chair' %}" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.
-                                </p>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div class="load-more-wrap flex flex-center">
                         <a href="#" class="load-more">
