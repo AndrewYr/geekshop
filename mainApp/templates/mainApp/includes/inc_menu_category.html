@@ -1,0 +1,15 @@
+<div class="products-nav flex flex-between item-center">
+    <div class="products-nav">
+        <div class="filter-tabs-small flex">
+            {% for foo in products_category %}
+                <a href="{% url 'products:index' %}" class="tab">{{ foo.name }}</a>
+            {% endfor %}
+{#                                <a href="#" class="tab active">All</a>#}
+{#                                <a href="#" class="tab">HOME</a>#}
+{#                                <a href="#" class="tab">OFFICE</a>#}
+{#                                <a href="#" class="tab">FURNITURE</a>#}
+{#                                <a href="#" class="tab">MODERN</a>#}
+{#                                <a href="#" class="tab">CLASSIC</a>#}
+        </div>
+    </div>
+</div>

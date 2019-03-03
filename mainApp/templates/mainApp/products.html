@@ -1,4 +1,5 @@
 {% extends 'mainApp/basic.html' %}
+{% load staticfiles %}
 {% block title %}
     <title>OUR PRODUCTS RANGE | INTERIOR</title>
 {% endblock %}
@@ -28,34 +29,8 @@
         <section class="tr-products-section mt-small">
             <div class="container">
                 <div class="row">
-                    <div class="products-nav flex flex-between item-center">
-                        <div class="products-nav">
-                            <div class="filter-tabs-small flex">
-                                <a href="#" class="tab active">All</a>
-                                <a href="#" class="tab">HOME</a>
-                                <a href="#" class="tab">OFFICE</a>
-                                <a href="#" class="tab">FURNITURE</a>
-                                <a href="#" class="tab">MODERN</a>
-                                <a href="#" class="tab">CLASSIC</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="products-grid flex flex-between">
-                        {% for product in products %}
-                            <div class="product">
-                                <img class="img-responsive" src={{ product.image.url }} alt="" >
-                                <div class="hover-overlay flex">
-                                    <a href="{% url 'fishnet_chair' %}" class="primary-btn">
-                                        <i class="fa fa-chevron-right"></i>
-                                    </a>
-                                    <h2 class="product-name">
-                                        {{ product.name }}
-                                    </h2>
-                                    <p class="product-desc">{{ product.short_desc }}</p>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
+                    {% include 'mainApp/includes/inc_menu_category.html' %}
+                    {% include 'mainApp/includes/inc_products.html' %}
                     <div class="load-more-wrap flex flex-center">
                         <a href="#" class="load-more">
                             <i class="fas fa-sync-alt"></i>

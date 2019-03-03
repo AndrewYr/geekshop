@@ -1,0 +1,19 @@
+<nav>
+  <div class="flex-container">
+      <div>
+          {% if user.is_anonymous %}
+              <h3>Ты кто?</h3>
+              <div>
+                  Выполни <a href="{% url 'auth:login' %}"> вход </a> или <a href="{% url 'auth:register' %}">зарегистрируйся</a>
+              </div>
+          {% else %}
+              <a href="{% url 'auth:edit' %}">Привет, {{ user.username|title }}!</a>
+              <a href="{% url 'auth:logout' %}">Выход</a>
+          {% endif %}
+      </div>
+
+    <form>
+        <a href="#">Корзина</a>
+    </form>
+  </div>
+</nav>

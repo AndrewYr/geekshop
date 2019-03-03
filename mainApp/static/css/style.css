@@ -124,6 +124,9 @@ header{
     z-index: 1;
     position: relative;
 }
+.text-justify{
+    text-align: justify;
+}
 .slider-item{
     position: absolute;
     top: 0;
@@ -643,4 +646,11 @@ a.crumb:hover{
         background-position: center;
         background-size: cover;
     }
+}
+
+/* navbar */
+.flex-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
 }

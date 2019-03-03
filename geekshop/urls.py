@@ -14,17 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls import url
-from mainApp import views
+from mainApp import views as mainApp
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    url(r'^$', views.home, name='mainApp'),
-    url(r'^products/$', views.products, name='products'),
-    url(r'^fishnet_chair/$', views.fishnet_chair, name='fishnet_chair'),
-    url(r'^contact/$', views.contacts, name='contact'),
+    url(r'^$', mainApp.index, name='mainApp'),
+    # url(r'^products/$', mainApp.products, name='products'),
+    url(r'^products/', include(('mainApp.urls', 'mainApp'), namespace='products')),
+    url(r'^fishnet_chair/$', mainApp.fishnet_chair, name='fishnet_chair'),
+    url(r'^history/$', mainApp.history, name='history'),
+    url(r'^showroom/$', mainApp.showroom, name='showroom'),
+    url(r'^contact/$', mainApp.contacts, name='contact'),
+    url(r'^auth/', include(('authapp.urls', 'authapp'), namespace='auth')),
     path('admin/', admin.site.urls),
 ]
 
