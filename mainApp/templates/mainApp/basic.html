@@ -15,69 +15,9 @@
 <body>
     {% include 'mainApp/includes/inc_navbar.html' %}
     <div class="page-wrap">
-    {% block content %}
-    {% endblock %}
-        <footer>
-            <div class="container">
-                <div class="footer-wrap">
-                    <div class="row flex flex-between">
-                        <div class="footer-sect has-width-sm">
-                            <h5 class="footer-heading">contact us</h5>
-                            <p class="footer-text">
-                                132A Bridge Road Richmond VIC<br>
-                                Australia.
-                                <br><br>
-                                Talk to us on <a class="in-text-link" href="tel:1300132">1300 132</a><br>
-                                <a class="in-text-link" href="mailto:info@interior.com">info@interior.com</a>
-                            </p>
-                        </div>
-                        <div class="footer-sect">
-                            <h5 class="footer-heading">Useful Information</h5>
-                            <div class="links-wrap flex flex-between">
-                                <div class="link-block">
-                                    <a href="#" class="footer-link">Sales terms</a>
-                                    <a href="#" class="footer-link">Customer care</a>
-                                    <a href="#" class="footer-link">Delivery</a>
-                                </div>
-                                <div class="link-block">
-                                    <a href="#" class="footer-link">Architect accounts</a>
-                                    <a href="#" class="footer-link">Careers</a>
-                                    <a href="#" class="footer-link">Exchanges & returns</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer-sect has-width-md">
-                            <h5 class="footer-heading">Let’s Stay in Touch!</h5>
-                            <p class="footer-text">
-                                Suscribe to know about our latest news, products and special offers just for suscribers.
-                            </p>
-                            <form action="#" method="post">
-                                <input type="email" name="email" placeholder="your email address">
-                                <button type="submit"><i class="fab fa-telegram-plane"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="row flex flex-between bottom-footer">
-                        <p>&copy; Copyright - INTERIOR 2016. All Rights Reserved.</p>
-                        <div class="socials-block">
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-google-plus-g"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-pinterest-p"></i>
-                            </a>
-                        </div>
-                        <p>Terms & Conditions  /  Privacy policy & Cookies</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        {% block content %}
+        {% endblock %}
+        {% include 'mainApp/includes/inc_footer.html' %}
     </div>
 </body>
 </html>

@@ -1,15 +1,14 @@
 <div class="products-nav flex flex-between item-center">
     <div class="products-nav">
         <div class="filter-tabs-small flex">
-            {% for foo in products_category %}
-                <a href="{% url 'products:index' %}" class="tab">{{ foo.name }}</a>
+            <a href="{% url 'products:category' 0 %}" class="tab {% if pk == None or pk == '0' %}
+                  active
+                {% endif %}">All</a>
+            {% for foo in links_menu %}
+                <a href="{% url 'products:category' foo.pk %}" class="tab {% if request.resolver_match.kwargs.pk|add:'0' == foo.pk %}
+                  active
+                {% endif %}">{{ foo.name }} </a>
             {% endfor %}
-{#                                <a href="#" class="tab active">All</a>#}
-{#                                <a href="#" class="tab">HOME</a>#}
-{#                                <a href="#" class="tab">OFFICE</a>#}
-{#                                <a href="#" class="tab">FURNITURE</a>#}
-{#                                <a href="#" class="tab">MODERN</a>#}
-{#                                <a href="#" class="tab">CLASSIC</a>#}
         </div>
     </div>
 </div>

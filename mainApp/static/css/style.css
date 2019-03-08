@@ -31,6 +31,11 @@ a {
     max-width: 1366px;
     margin: 0 auto;
 }
+/*.container_footer {*/
+    /*width: 100%;*/
+    /*max-width: 1366px;*/
+    /*margin: 0 auto;*/
+/*}*/
 .row {
     padding: 0 98px;
 }
@@ -96,6 +101,28 @@ a {
     top: 2px;
 }
 .primary-btn i {
+    padding-left: 22px;
+}
+.basket-btn{
+    margin-top: 30px;
+    color: #212121;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4.85px 0.15px rgba(33, 33, 33, 0.35);
+    border-radius: 40px;
+    padding: 12px 28px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    /*text-transform: uppercase;*/
+    transition: all ease-in-out 0.2s;
+}
+.basket-btn:hover {
+    box-shadow: 0 4px 15px 1px rgba(33, 33, 33, 0.35);
+}
+.basket-btn:active {
+    position: relative;
+    top: 2px;
+}
+.basket-btn i {
     padding-left: 22px;
 }
 .cta-desc{

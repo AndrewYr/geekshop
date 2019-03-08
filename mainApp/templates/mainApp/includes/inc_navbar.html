@@ -13,7 +13,11 @@
       </div>
 
     <form>
-        <a href="#">Корзина</a>
+        <a href="#">Корзина
+            <span>
+            {% if basket %} {{ basket|length }} {% endif %}
+            </span>
+        </a>
     </form>
   </div>
 </nav>

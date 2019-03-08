@@ -4,8 +4,6 @@
         <div class="product">
             {% if product.image %}
                 <img class="img-responsive" src={{ product.image.url }} alt="" >
-            {% else %}
-                <img class="img-responsive" src="{% static 'img/default_img/default.png' %}" alt="" >
             {% endif %}
             <div class="hover-overlay flex">
                 <a href="{% url 'fishnet_chair' %}" class="primary-btn">
@@ -15,6 +13,7 @@
                     {{ product.name }}
                 </h2>
                 <p class="product-desc">{{ product.short_desc }}</p>
+                <a href="{% url 'basket:add' product.pk %}" class="basket-btn">Добавить в корзину</a>
             </div>
         </div>
     {% endfor %}

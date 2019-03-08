@@ -1,0 +1,21 @@
+{% extends 'mainApp/basic.html' %}
+{% block title %}
+    <title>YOUR BASKET | BASKET</title>
+{% endblock %}
+{% block content %}
+    <section class="header-section">
+        <div class="container">
+            <div class="header-wrap flex column flex-between">
+                {% include 'mainApp/includes/inc_menu.html' %}
+                <div class="row">
+                    <h1 class="page-heading">
+                        Your Basket
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% for item in basket %}
+        <h1>{{ item.product.name }}</h1>
+    {% endfor %}
+{% endblock %}
