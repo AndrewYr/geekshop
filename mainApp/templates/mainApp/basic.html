@@ -8,13 +8,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% block title %}
     {% endblock %}
+{#    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">#}
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block js %}
+    {% endblock %}
+
 </head>
 <body>
-    {% include 'mainApp/includes/inc_navbar.html' %}
     <div class="page-wrap">
+        {% include 'mainApp/includes/inc_navbar.html' %}
         {% block content %}
         {% endblock %}
         {% include 'mainApp/includes/inc_footer.html' %}

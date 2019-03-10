@@ -1,6 +1,11 @@
 {% extends 'mainApp/basic.html' %}
+{% load staticfiles %}
 {% block title %}
     <title>YOUR BASKET | BASKET</title>
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/basket_scripts.js' %}"></script>
 {% endblock %}
 {% block content %}
     <section class="header-section">
@@ -15,7 +20,5 @@
             </div>
         </div>
     </section>
-    {% for item in basket %}
-        <h1>{{ item.product.name }}</h1>
-    {% endfor %}
+    {% include 'basketapp/includes/inc_basket_list.html' %}
 {% endblock %}

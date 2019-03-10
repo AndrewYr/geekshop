@@ -1,5 +1,5 @@
 <nav>
-  <div class="flex-container">
+  <div class="container flex-container">
       <div>
           {% if user.is_anonymous %}
               <h3>Ты кто?</h3>
@@ -13,9 +13,9 @@
       </div>
 
     <form>
-        <a href="#">Корзина
+        <a href="{% url 'basket:basket' %}">Корзина
             <span>
-            {% if basket %} {{ basket|length }} {% endif %}
+            {% if basket %} {{ basket.0.total_quantity }} {% endif %}
             </span>
         </a>
     </form>

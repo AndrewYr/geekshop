@@ -26,7 +26,7 @@
                     <i class="fa fa-chevron-right divider"></i>
                     <a href="{% url 'products:index' %}" class="crumb">Products</a>
                     <i class="fa fa-chevron-right divider"></i>
-                    <span class="crumb current">Fishnet Chair</span>
+                    <span class="crumb current">{{ product.name }}</span>
                 </div>
             </div>
         </div>
@@ -34,25 +34,24 @@
             <div class="container">
                 <div class="row flex flex-between">
                     <div class="product-preview">
-                        <img src="/static/img/product.jpg" alt="">
-                        <div class="preview-control flex flex-center">
-                            <a href="#" class="control-tab"><img src="/static/img/controll.jpg" alt=""></a>
-                            <a href="#" class="control-tab"><img src="/static/img/controll11.jpg" alt=""></a>
-                            <a href="#" class="control-tab"><img src="/static/img/controll2.jpg" alt=""></a>
-                        </div>
+                        <img src="{{ product.image.url }}" alt="">
+{#                        <div class="preview-control flex flex-center">#}
+{#                            <a href="#" class="control-tab"><img src="/static/img/controll.jpg" alt=""></a>#}
+{#                            <a href="#" class="control-tab"><img src="/static/img/controll11.jpg" alt=""></a>#}
+{#                            <a href="#" class="control-tab"><img src="/static/img/controll2.jpg" alt=""></a>#}
+{#                        </div>#}
                     </div>
                     <div class="product-bio cta-wrap">
                         <h1 class="product-title cta-head">
-                            Fishnet Chair
+                            {{ product.name }}
                         </h1>
                         <h4 class="cta-tag red">hot deal</h4>
                         <p class="product-price">
-                            $ <span class="price-imp">36.7</span>/sq
+                            <span class="price-imp">{{ product.price }}</span>руб.
                         </p>
-                        <a class="primary-btn" href="#">Order us <i class="fa fa-chevron-right"></i></a>
-                        <p class="product-desc">The majesty of Mountains - Ugmonk style.</p>
-                        <p class="product-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
-                        <p class="product-desc">et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a class="primary-btn" href="{% url 'basket:add' product.id %}">Купить<i class="fa fa-chevron-right"></i></a>
+                        <p class="product-desc">{{ product.short_desc }}</p>
+                        <p class="product-desc">{{ product.description }}</p>
                         <p class="product-desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
                     </div>
                 </div>
@@ -63,51 +62,12 @@
                 <div class="row">
                     <div class="products-nav flex flex-between item-center">
                         <h3 class="sect-heading">Related Products</h3>
-                        <a href="/products" class="more-link">
+                        <a href="{% url 'products:category' product.category.id %}" class="more-link">
                             Explore all
                             <i class="fa fa-chevron-right"></i>
                         </a>
                     </div>
-                    <div class="products-grid flex flex-between">
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-11.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="#" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.</p>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-21.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="#" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <img class="img-responsive" src="/static/img/product-31.jpg" alt="">
-                            <div class="hover-overlay flex">
-                                <a href="#" class="primary-btn">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                                <h2 class="product-name">
-                                    Fishnet chair
-                                </h2>
-                                <p class="product-desc">Seat and back with upholstery made of cold cure foam.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    {% include 'mainApp/includes/inc_products.html' %}
                 </div>
             </div>
         </section>
