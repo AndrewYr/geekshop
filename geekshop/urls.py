@@ -30,7 +30,8 @@ urlpatterns = [
     url(r'^contact/$', mainApp.contacts, name='contact'),
     url(r'^auth/', include(('authapp.urls', 'authapp'), namespace='auth')),
     url(r'^basket/', include(('basketapp.urls', 'basketapp'), namespace='basket')),
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
+    path('admin/', include('adminapp.urls', namespace='admin'))
 ]
 
 if settings.DEBUG:
