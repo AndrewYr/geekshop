@@ -18,8 +18,7 @@ def order(request):
         new_product_item.save()
 
         text_message += 'Товар id ' + str(item.product.id) + ' в количестве ' + str(item.quantity) + '\n'
-        item.is_active = False
-        item.save()
+        item.delete()
     sendmessage(request.user, text_message)
 
     return render(request, 'basketapp/basket.html', locals())
