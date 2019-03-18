@@ -11,17 +11,22 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from configparser import ConfigParser
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_DIR = os.path.dirname(BASE_DIR)
 
+local_config_path = os.path.join(BASE_DIR, 'conf', 'local.conf')
+config = ConfigParser()
+config.read(local_config_path)
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'l0non%myg9e_mqya=4^%un%oms=8)6%k$)ru@#ip5%4%5lw6r+'
 
+SECRET_KEY = config.get('main', 'SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -42,6 +47,7 @@ INSTALLED_APPS = [
     'authapp',
     'basketapp',
     'adminapp',
+    'orderapp',
 ]
 
 MIDDLEWARE = [
@@ -85,6 +91,14 @@ DATABASES = {
     }
 }
 
+SENDER_EMAIL = config.get('smtp', 'SENDER_EMAIL')
+SERVER_EMAIL = SENDER_EMAIL
+
+EMAIL_HOST = config.get('smtp', 'HOST')
+EMAIL_HOST_USER = SENDER_EMAIL
+EMAIL_HOST_PASSWORD = config.get('smtp', 'PASSWORD')
+EMAIL_PORT = config.getint('smtp', 'PORT')
+EMAIL_USE_SSL = config.getboolean('smtp', 'SSL')
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

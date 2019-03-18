@@ -45,7 +45,10 @@
                     <b>Сумма заказа: </b><span id="total_order_amount">{{ basket.0.total_cost }}</span>
                 </div>
                 <div>
-                    <button type="submit">Заказать</button>
+{#                    <button type="submit">Заказать</button>#}
+{#                    {% url 'basket:add' product.pk %}#}
+{#                    {% url 'ordder:add' basket.id %}#}
+                    <a href="{% url 'order:order' %}" >Заказать</a>
                 </div>
             </form>
         </div>

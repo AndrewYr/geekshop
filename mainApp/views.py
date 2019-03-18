@@ -1,6 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, ProductCategory
 from basketapp.models import Basket
+from django.views.generic.list import ListView
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import user_passes_test
+
 
 def index(request):
     basket = []
@@ -9,6 +13,16 @@ def index(request):
 
     products = Product.objects.filter(trending=True)
     return render(request, 'mainApp/index.html', locals())
+
+
+# class ProductsListView(ListView):
+#     model = Product
+#     template_name = 'adminapp/products.html'
+#
+#     @method_decorator(user_passes_test(lambda u: u.is_superuser))
+#     def dispatch(self, *args, **kwargs):
+#         return super().dispatch(*args, **kwargs)
+
 
 def products(request, pk=None):
     basket = []
@@ -24,9 +38,6 @@ def products(request, pk=None):
         else:
             category = get_object_or_404(ProductCategory, pk=pk)
             products = Product.objects.filter(category__pk=pk)
-
-
-
     return render(request, 'mainApp/products.html', locals())
 
 
