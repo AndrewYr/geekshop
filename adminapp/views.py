@@ -25,7 +25,7 @@ from django.utils.decorators import method_decorator
 #     }
 #
 #     return render(request, 'adminapp/users.html', content)
-
+# qwe
 class UsersListView(ListView):
     model = ShopUser
     template_name = 'adminapp/users.html'
