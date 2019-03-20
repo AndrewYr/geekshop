@@ -14,7 +14,7 @@ def index(request):
     products = Product.objects.filter(trending=True)
     return render(request, 'mainApp/index.html', locals())
 
-
+# ыв
 # class ProductsListView(ListView):
 #     model = Product
 #     template_name = 'adminapp/products.html'
