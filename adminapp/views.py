@@ -21,7 +21,7 @@ from django.utils.decorators import method_decorator
 #
 #     content = {
 #         'title': title,
-#         'objects': users_list
+#         'object_list': users_list
 #     }
 #
 #     return render(request, 'adminapp/users.html', content)
@@ -35,21 +35,34 @@ class UsersListView(ListView):
         return super().dispatch(*args, **kwargs)
 
 
-@user_passes_test(lambda u: u.is_superuser)
-def user_create(request):
-    title = 'пользователи/создание'
+class UsersCreateView(CreateView):
+    model = ShopUser
+    template_name = 'adminapp/user_update.html'
+    success_url = reverse_lazy('admin_custom:user_update')
+    # fields = '__all__'
+    fields = ('username', 'first_name', 'email', 'password', 'age', 'avatar')
 
-    if request.method == 'POST':
-        user_form = ShopUserRegisterForm(request.POST, request.FILES)
-        if user_form.is_valid():
-            user_form.save()
-            return HttpResponseRedirect(reverse('admin_custom:users'))
-    else:
-        user_form = ShopUserRegisterForm()
+    @method_decorator(user_passes_test(lambda u: u.is_superuser))
+    def dispatch(self, *args, **kwargs):
+        # if self.request == 'POST':
+            # self.model.objects.create()
+        return super(UsersCreateView, self).dispatch(*args, **kwargs)
 
-    content = {'title': title, 'update_form': user_form}
-
-    return render(request, 'adminapp/user_update.html', content)
+# @user_passes_test(lambda u: u.is_superuser)
+# def user_create(request):
+#     title = 'пользователи/создание'
+#
+#     if request.method == 'POST':
+#         user_form = ShopUserRegisterForm(request.POST, request.FILES)
+#         if user_form.is_valid():
+#             user_form.save()
+#             return HttpResponseRedirect(reverse('admin_custom:users'))
+#     else:
+#         user_form = ShopUserRegisterForm()
+#
+#     content = {'title': title, 'form': user_form}
+#
+#     return render(request, 'adminapp/user_update.html', content)
 
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -125,6 +138,12 @@ class ProductCategoryDeleteView(DeleteView):
     template_name = 'adminapp/categories_update.html'
     success_url = reverse_lazy('admin_custom:categories')
 
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.is_active = False
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
+
 
 @user_passes_test(lambda u: u.is_superuser)
 def products(request, pk):
@@ -157,6 +176,7 @@ def products(request, pk):
 #     content = {'title': title, 'update_form': user_form}
 #
 #     return render(request, 'adminapp/products_update.html', content)
+
 class ProductCreateView(CreateView):
     model = Product
     template_name = 'adminapp/products_update.html'

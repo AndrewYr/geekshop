@@ -2,6 +2,8 @@ from django.shortcuts import render, HttpResponseRedirect
 from authapp.forms import ShopUserLoginForm, ShopUserRegisterForm, ShopUserEditForm
 from django.contrib import auth
 from django.urls import reverse
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 def login(request):
@@ -38,6 +40,7 @@ def register(request):
         if register_form.is_valid():
             new_user = register_form.save()
             auth.login(request, new_user)
+            sendmessage(new_user.email)
             return HttpResponseRedirect(reverse('mainApp'))
     else:
         register_form = ShopUserRegisterForm()
@@ -60,3 +63,7 @@ def edit(request):
     content = {'title': title, 'edit_form': edit_form}
 
     return render(request, 'authapp/edit.html', content)
+
+
+def sendmessage(email):
+    send_mail('Регистрация', 'Поздравляем, вы зарегистрировались на нашем чудо сайте', 'Человек<{}>'.format(settings.SENDER_EMAIL), [email])

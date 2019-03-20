@@ -17,7 +17,8 @@ class ShopUserLoginForm(AuthenticationForm):
 class ShopUserRegisterForm(UserCreationForm):
     class Meta:
         model = ShopUser
-        fields = ('username', 'first_name', 'password1', 'password2', 'email', 'age', 'avatar')
+        # fields = ('username', 'first_name', 'password1', 'password2', 'email', 'age', 'avatar')
+        fields = '__all__'
 
     def __init__(self, *args, **kwargs):
         super(ShopUserRegisterForm, self).__init__(*args, **kwargs)
@@ -30,6 +31,14 @@ class ShopUserRegisterForm(UserCreationForm):
         if data < 18:
             raise forms.ValidationError("Вы слишком молоды!")
 
+        return data
+
+    def clean_email(self):
+        data = self.cleaned_data['email']
+        have_email = ShopUser.objects.filter(email=self.cleaned_data['email'])
+        for item in have_email:
+            raise forms.ValidationError("Такой email уже существует!")
+            break
         return data
 
 

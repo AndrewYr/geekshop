@@ -20,7 +20,7 @@ def order(request):
         text_message += 'Товар id ' + str(item.product.id) + ' в количестве ' + str(item.quantity) + '\n'
         item.delete()
     sendmessage(request.user, text_message)
-
+    basket = Basket.objects.filter(user=request.user)
     return render(request, 'basketapp/basket.html', locals())
 
 def order_add(request, basket):
