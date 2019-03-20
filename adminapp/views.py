@@ -51,7 +51,7 @@ class UsersCreateView(CreateView):
 # @user_passes_test(lambda u: u.is_superuser)
 # def user_create(request):
 #     title = 'пользователи/создание'
-#sd
+#
 #     if request.method == 'POST':
 #         user_form = ShopUserRegisterForm(request.POST, request.FILES)
 #         if user_form.is_valid():
