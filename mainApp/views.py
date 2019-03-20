@@ -14,7 +14,7 @@ def index(request):
     products = Product.objects.filter(trending=True)
     return render(request, 'mainApp/index.html', locals())
 
-# ыв
+
 # class ProductsListView(ListView):
 #     model = Product
 #     template_name = 'adminapp/products.html'
@@ -50,12 +50,23 @@ def product(request, pk=None):
     products = Product.objects.filter(category_id=product.category.id)[0:3]
     return render(request, 'mainApp/fishnet_chair.html', locals())
 
-def history(request):
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
+class HistoryListView(ListView):
+    model = Basket
+    template_name = 'mainApp/history.html'
 
-    return render(request, 'mainApp/history.html', locals())
+    @method_decorator(user_passes_test(lambda u: u.is_superuser))
+    def dispatch(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            basket = Basket.objects.filter(user=self.request.user)
+        return super().dispatch(*args, **kwargs)
+
+
+    # def history(request):
+#     basket = []
+#     if request.user.is_authenticated:
+#         basket = Basket.objects.filter(user=request.user)
+#
+#     return render(request, 'mainApp/history.html', locals())
 
 def showroom(request):
     basket = []

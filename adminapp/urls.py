@@ -6,8 +6,8 @@ from django.conf.urls import url
 app_name = 'adminapp'
 
 urlpatterns = [
-    # url(r'^users/create/$', adminapp.user_create, name='user_create'),
-    url(r'^users/create/$', adminapp.UsersCreateView.as_view(), name='user_create'),
+    url(r'^users/create/$', adminapp.user_create, name='user_create'),
+    # url(r'^users/create/$', adminapp.UsersCreateView.as_view(), name='user_create'),
     url(r'^users/read/$', adminapp.UsersListView.as_view(), name='users'),
     url(r'^users/update/(?P<pk>\d+)/$', adminapp.user_update, name='user_update'),
     url(r'^users/delete/(?P<pk>\d+)/$', adminapp.user_delete, name='user_delete'),

@@ -11,7 +11,7 @@ from authapp.forms import ShopUserRegisterForm
 from adminapp.forms import ShopUserAdminEditForm, ProductEditForm
 from django.views.generic.list import ListView
 from django.utils.decorators import method_decorator
-
+from django import forms
 
 # @user_passes_test(lambda u: u.is_superuser)
 # def users(request):
@@ -35,34 +35,36 @@ class UsersListView(ListView):
         return super().dispatch(*args, **kwargs)
 
 
-class UsersCreateView(CreateView):
-    model = ShopUser
-    template_name = 'adminapp/user_update.html'
-    success_url = reverse_lazy('admin_custom:user_update')
-    # fields = '__all__'
-    fields = ('username', 'first_name', 'email', 'password', 'age', 'avatar')
+# class UsersCreateView(CreateView):
+#     model = ShopUser
+#     template_name = 'adminapp/user_update.html'
+#     success_url = reverse_lazy('admin_custom:user_update')
+#     # fields = '__all__'
+#     fields = ('username', 'first_name', 'email', 'password', 'age', 'avatar')
+#
+#     @method_decorator(user_passes_test(lambda u: u.is_superuser))
+#     def dispatch(self, *args, **kwargs):
+#         if self.request.method == 'POST':
+#             if int(self.request.POST['age']) < 18:
+#                 raise forms.ValidationError("Вы слишком молоды!")
+#             # self.model.objects.create()
+#         return super(UsersCreateView, self).dispatch(*args, **kwargs)
 
-    @method_decorator(user_passes_test(lambda u: u.is_superuser))
-    def dispatch(self, *args, **kwargs):
-        # if self.request == 'POST':
-            # self.model.objects.create()
-        return super(UsersCreateView, self).dispatch(*args, **kwargs)
+@user_passes_test(lambda u: u.is_superuser)
+def user_create(request):
+    title = 'пользователи/создание'
 
-# @user_passes_test(lambda u: u.is_superuser)
-# def user_create(request):
-#     title = 'пользователи/создание'
-#
-#     if request.method == 'POST':
-#         user_form = ShopUserRegisterForm(request.POST, request.FILES)
-#         if user_form.is_valid():
-#             user_form.save()
-#             return HttpResponseRedirect(reverse('admin_custom:users'))
-#     else:
-#         user_form = ShopUserRegisterForm()
-#
-#     content = {'title': title, 'form': user_form}
-#
-#     return render(request, 'adminapp/user_update.html', content)
+    if request.method == 'POST':
+        user_form = ShopUserRegisterForm(request.POST, request.FILES)
+        if user_form.is_valid():
+            user_form.save()
+            return HttpResponseRedirect(reverse('admin_custom:users'))
+    else:
+        user_form = ShopUserRegisterForm()
+
+    content = {'title': title, 'form': user_form}
+
+    return render(request, 'adminapp/user_update.html', content)
 
 
 @user_passes_test(lambda u: u.is_superuser)
